@@ -1,0 +1,32 @@
+# WP-Mag-attributes
+This a simple WordPress plugin that will allow you to show the values of an attribute in Magento
+
+I created this plugin because I needed to show possible attribute values for a Magento site in a knowledge base that we're writing up using WordPress.
+
+I only tested it with M1.9 - open an issue if you'd like an M2 version.
+
+We are only using the ```Resource: catalog_product_attribute ``` from [Magento Dev Docs](http://devdocs.magento.com/guides/m1x/api/soap/catalog/catalogProductAttribute/product_attribute.options.html).
+
+You can easily extend this for other API calls - open an issue if you need help.
+
+# Install
+
+Download this repo as a zip and install like any other WP plugin
+
+# Setup
+
+Once the plugin is installed and activated, head over to settings=>magento
+
+1. Fill in the magento URL, http://example.com
+2. Set the Magento API user and secret 
+
+# Usage
+
+In any post or page, simply use ```[magento_attributes attribute_id="YOUR_ATTRIBUTE_ID_HERE"]```
+
+# INFO
+
+The API queries are cached, we did it setting a [transient (https://codex.wordpress.org/Transients_API). 
+
+**This was created on the fly for our own use, so please evaluate carefully before installing on your site**
+
