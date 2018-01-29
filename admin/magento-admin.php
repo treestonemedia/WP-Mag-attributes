@@ -27,6 +27,27 @@ function treestone_plugin_options() {
 		wp_die( __( "You do not have sufficient permissions to access this page." ) );
 	}
 
+	//check if SOAP enabled
+	if ( extension_loaded( 'soap' ) ) { ?>
+
+        <div id="message" class="updated notice is-dismissible">
+            <p><?php _e( "Soap is loaded on your server, good to go!" ); ?></p>
+            <button type="button" class="notice-dismiss">
+                <span class="screen-reader-text"><?php _e( "Dismiss this notice.", "magento-api" ); ?></span>
+            </button>
+        </div>
+		<?php
+	} else { ?>
+        <div id="message" class="updated error notice is-dismissible">
+            <p><?php _e( "Soap is not loaded on your server, please contact your system administrator!" ); ?></p>
+            <button type="button" class="notice-dismiss">
+                <span class="screen-reader-text"><?php _e( "Dismiss this notice.", "magento-api" ); ?></span>
+            </button>
+        </div>
+
+		<?php
+	}
+
 	//show a success message after settings were saved
 	if ( isset( $_GET['status'] ) && $_GET['status'] == 'success' ) {
 		?>
