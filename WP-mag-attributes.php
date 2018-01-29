@@ -35,7 +35,7 @@ function magento_attributes_func( $atts ) {
 
 		$mg = new magento(); //init magento api class
 
-		$attributes = $mg->connect( $id ); //init magento api call with attribute id
+		$attributes = $mg->getAttributeOptions( $id ); //init magento api call with attribute id
 
 		$return = "<ul>"; //start a list for the results, can be set as table also
 

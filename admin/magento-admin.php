@@ -58,6 +58,16 @@ function treestone_plugin_options() {
             </button>
         </div>
 		<?php
+	} elseif ( isset( $_GET['status'] ) && $_GET['status'] == 'error' ) {
+		?>
+        <div id="message" class="updated  error notice is-dismissible">
+            <p><?php _e( "Couldn't connect to " . get_option( 'mg_url' ) . " Message was: " . $_GET['error_message'], "magento-api" ); ?></p>
+            <button type="button" class="notice-dismiss">
+                <span class="screen-reader-text"><?php _e( "Dismiss this notice.", "magento-api" ); ?></span>
+            </button>
+        </div>
+
+		<?php
 	}
 
 
@@ -110,6 +120,22 @@ function magento_handle_save() {
 	update_option( "mg_url", $url, true );
 	update_option( "mg_api_user", $apiuser, true );
 	update_option( "mg_scrt", $secret, true );
+
+	//try connecting to the API
+
+	try {
+		$mg = new magento();
+		$mg->connect();
+	} catch ( SoapFault $fault ) {
+		trigger_error( "SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring}),E_USER_ERROR" );
+
+		// Redirect back to settings page
+		// The ?page=magento corresponds to the "slug"
+		// set in the fourth parameter of add_submenu_page() above.
+		$redirect_url = get_bloginfo( "url" ) . "/wp-admin/options-general.php?page=magento&status=error&error_message=" . $fault->faultstring;
+		header( "Location: " . $redirect_url );
+		exit;
+	}
 
 	// Redirect back to settings page
 	// The ?page=magento corresponds to the "slug"
