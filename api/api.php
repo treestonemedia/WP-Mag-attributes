@@ -41,4 +41,29 @@ class magento {
 
 	}
 
+	//start order section
+	//https://www.fontis.com.au/blog/web-services-api-filter-operators
+
+	public function getOrdersList() {
+
+		$params = array(
+			'complex_filter' =>
+				array(
+					array(
+						'key'   => 'created_at',
+						'value' => array( 'key' => 'from', 'value' => '2018-01-01 01:01:01' )
+					),
+					array( 'key' => 'status ', 'value' => 'Processing' ),
+
+				),
+
+		);
+		$mg     = $this->connect();
+		$result = $mg->salesOrderList( $this->sessionId, $params );
+
+
+		return $result;
+
+	}
+
 }

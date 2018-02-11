@@ -59,3 +59,26 @@ function magento_attributes_func( $atts ) {
 }
 
 add_shortcode( "magento_attributes", "magento_attributes_func" ); //this enables the shortcode
+
+//Add Sales Orders
+
+function magento_sales_func() {
+
+	$mg     = new magento(); //init magento api class
+	$orders = $mg->getOrdersList(); //init magento api call with orders
+	foreach ( $orders as $order ) {
+
+		$return = "<pre>"; //open a 'pre' for each order
+		foreach ( $order as $name => $value ) {
+
+			$return .= "<b>" . $name . " : </b>" . $value . "<br/>";
+
+
+		}
+		$return .= "</pre>"; //close the 'pre'
+	}
+
+	return $return;
+}
+
+add_shortcode( "magento_sales", "magento_sales_func" ); //this enables the shortcode

@@ -1,11 +1,13 @@
 # WP-Mag-attributes
-This a simple WordPress plugin that will allow you to show the values of an attribute in Magento
+This a simple WordPress plugin that will allow you to connect to Magento API
 
 I created this plugin because I needed to show possible attribute values for a Magento site in a knowledge base that we're writing up using WordPress.
+Once we were at it, we also added pulling orders - very rudimentary, play around with the filters.
 
-I only tested it with M1.9 - open an issue if you'd like an M2 version.
+I only tested it with M1.9 and M1.72 - open an issue if you'd like an M2 version.
 
-We are only using the ```Resource: catalog_product_attribute ``` from [Magento Dev Docs](http://devdocs.magento.com/guides/m1x/api/soap/catalog/catalogProductAttribute/product_attribute.options.html).
+We are using the ```Resource: catalog_product_attribute ``` from [Magento Dev Docs](http://devdocs.magento.com/guides/m1x/api/soap/catalog/catalogProductAttribute/product_attribute.options.html).
+We are also using the ```Resource: sales_order``` from [Magento Dev Docs](http://devdocs.magento.com/guides/m1x/api/soap/sales/salesOrder/sales_order.list.html)
 
 You can easily extend this for other API calls - open an issue if you need help.
 
@@ -22,7 +24,9 @@ Once the plugin is installed and activated, head over to settings=>magento
 
 # Usage
 
-In any post or page, simply use ```[magento_attributes attribute_id="YOUR_ATTRIBUTE_ID_HERE"]```
+In any post or page, simply use ```[magento_attributes attribute_id="YOUR_ATTRIBUTE_ID_HERE"]``` to get attribute values
+
+We also added a shortcode for orders ```[magento_sales]```
 
 # INFO
 
