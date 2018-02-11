@@ -82,3 +82,25 @@ function magento_sales_func() {
 }
 
 add_shortcode( "magento_sales", "magento_sales_func" ); //this enables the shortcode
+
+//Add store info
+
+function magento_info() {
+
+	$mg        = new magento(); //init magento api class
+	$storeInfo = $mg->getStoreInfo(); //init magento api class with store info
+
+	$return = "<pre>";
+
+	foreach ( $storeInfo as $k => $v ) {
+
+		$return .= "<b>" . $k . " :</b> " . $v . "<br/>";
+	}
+	$return .= "</pre>";
+
+	return $return;
+
+}
+
+
+add_shortcode( "magento_store_info", "magento_info" ); //this enables the shortcode

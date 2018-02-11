@@ -66,4 +66,15 @@ class magento {
 
 	}
 
+	public function getStoreInfo() {
+
+		$mg     = $this->connect();
+		$result = $mg->magentoInfo( $this->sessionId );
+
+		//var_dump($result);
+		return $result;
+
+
+	}
+
 }
