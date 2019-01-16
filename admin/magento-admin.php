@@ -73,7 +73,7 @@ function treestone_plugin_options()
     }
 
     //build the form with the elements
-    //default WP classes were used for ease ?>
+    //default WP classes were used for ease?>
     <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
 
         <input type="hidden" name="action" value="update_magento_settings"/>
