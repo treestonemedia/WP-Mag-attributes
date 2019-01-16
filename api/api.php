@@ -7,7 +7,7 @@
  * Time: 8:50 PM.
  */
 defined('ABSPATH') or die('Cannot access pages directly.'); //protect from direct access
-class magento 
+class magento {
 
     public $sessionId;
 
