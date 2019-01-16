@@ -6,7 +6,7 @@
  */
 defined('ABSPATH') or die('Cannot access pages directly.'); //protect from direct access
 class magento
-{
+
     public $sessionId;
 
     public function connect()
