@@ -1,4 +1,4 @@
-[![StyleCI](https://github.styleci.io/repos/119318250/shield?branch=master)](https://github.styleci.io/repos/119318250)
+[![StyleCI](https://github.styleci.io/repos/119318250/shield?branch=master)](https://github.styleci.io/repos/119318250)[![Maintainability](https://api.codeclimate.com/v1/badges/64db2f92e006a59e9933/maintainability)](https://codeclimate.com/github/treestonemedia/WP-Mag-attributes/maintainability)
 # WP-Mag-attributes
 This a simple WordPress plugin that will allow you to connect to Magento API
 
