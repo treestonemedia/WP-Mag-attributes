@@ -15,7 +15,7 @@ class magento
         $mg_usr = get_option('mg_api_user'); //get the magento api user as set in settings
         $mg_scrt = get_option('mg_scrt'); //get the magento api secret as set in settings
 
-        $proxy = new SoapClient($mg_host.'/api/v2_soap/?wsdl'); //initiate request to magento
+ $proxy = new SoapClient( $mg_host.'/api/v2_soap/?wsdl' ); //initiate request to magento
 
         $this->sessionId = $proxy->login($mg_usr, $mg_scrt); //login to magento with API credentials
 
